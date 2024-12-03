@@ -8,13 +8,4 @@ public class Autocar extends Vehicule{
         setPrix(prix);
         setCarburant(carburant);
     }
-    @Override
-    public Carburant typeCarburant() {
-        return getCarburant();
-    }
-
-    @Override
-    public void periodiciteVidange() {
-
-    }
 }

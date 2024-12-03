@@ -1,6 +1,7 @@
-public class Voiture extends Vehicule{
+public class Voiture extends Vehicule implements Decapotable {
     private static int nbrVoit = 0;
     private static final int nbMaxV=20;
+    private Boolean toitReplie;
 
     public Voiture(int anneeModel, int prix, Carburant carburant) {
         setMat(getClass()+":"+ ++nbrVoit);
@@ -10,17 +11,13 @@ public class Voiture extends Vehicule{
     }
 
     @Override
-    public Carburant typeCarburant() {
-        return getCarburant();
+    public void replieLeToit() {
+        toitReplie = !toitReplie;
+        System.out.println("Le toit est maintenant " + (toitReplie ? "replié" : "déplié"));
     }
 
     @Override
-    public void periodiciteVidange() {
-        int pv;
-        switch (getCarburant()){
-            case ESSENCE -> pv = 10; break;
-            case GAZ -> pv = 12; break;
-            case DIESEL -> pv = 18; break;
-        }
+    public String toString() {
+        return super.toString() + ", Toit replié: " + (toitReplie ? "Oui" : "Non");
     }
 }
